@@ -15,4 +15,19 @@ function createNote(body, notesArray) {
     return note;
 }
 
-module.exports = {createNote};
+function deleteNote(notesArray, id) {
+
+    const findId = (note) => {
+        return note.id === id;  
+    }
+    let deletedId = notesArray.findIndex(findId);
+    notesArray.splice(deletedId, 1);
+
+    fs.writeFileSync(
+        path.join(__dirname, "../db/db.json"),
+        JSON.stringify({
+            notes: notesArray
+        }, null, 2)
+    )
+}
+module.exports = {createNote , deleteNote};
