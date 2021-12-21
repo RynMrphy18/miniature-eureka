@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
+// takes note params made and writes it to db
+
 function createNote(body, notesArray) {
     const note = body;
     notesArray.push(note);
@@ -14,6 +16,8 @@ function createNote(body, notesArray) {
 
     return note;
 }
+
+// finds note by id and deletes from database, worked out with tutor
 
 function deleteNote(notesArray, id) {
 
